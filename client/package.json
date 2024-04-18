@@ -9,7 +9,7 @@
 		"build": "tsc && vite build",
 		"lint": "eslint src --ext ts,tsx --cache --max-warnings 0",
 		"preview": "vite preview",
-		"postinstall": "npx mrm lint-staged"
+		"postinstall": "cd .. && husky client/.husky"
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.0.2",
@@ -50,9 +50,6 @@
 		"vite-tsconfig-paths": "^4.3.2"
 	},
 	"lint-staged": {
-		"*.{ts,tsx}": [
-			"prettier --write",
-			"eslint --fix"
-		]
+		"*.{ts,tsx}": "eslint --cache --fix"
 	}
 }
