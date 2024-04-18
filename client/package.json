@@ -1,5 +1,5 @@
 {
-	"name": "basic-template",
+	"name": "fullstack-todo-client",
 	"private": true,
 	"version": "0.0.0",
 	"prettier": "@younyikim/prettier-config",
