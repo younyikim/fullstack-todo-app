@@ -9,7 +9,7 @@
 		"build": "tsc && vite build",
 		"lint": "eslint src --ext ts,tsx --cache --max-warnings 0",
 		"preview": "vite preview",
-		"postinstall": "cd .. && husky .husky"
+		"postinstall": "cd .. && husky client/.husky"
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.0.2",
