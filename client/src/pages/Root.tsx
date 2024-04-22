@@ -1,10 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import '@/App.css';
 
+// Pages
+import Todo from '@/pages/Todo';
+
 function Root() {
 	return (
 		<>
-			<h1>Vite + React</h1>
+			<Todo />
 			<Outlet />
 		</>
 	);
