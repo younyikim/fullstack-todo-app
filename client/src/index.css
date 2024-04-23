@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* box-sizing 규칙을 명시합니다. */
 *,
 *::before,
