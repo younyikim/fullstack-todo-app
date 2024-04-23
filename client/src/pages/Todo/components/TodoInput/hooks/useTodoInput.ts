@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 export const useTodoInput = () => {
 	const [value, setValue] = useState('');
 	const [buttonText, setButtonText] = useState('확인');
-	const [isCreate] = useState(false);
+	const [isCreate] = useState(true);
 
 	useEffect(() => {
 		if (isCreate) setButtonText('확인');
