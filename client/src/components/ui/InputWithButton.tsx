@@ -11,7 +11,7 @@ export function InputWithButton(props: InputWithButtonProps) {
 	const { placeholder = 'Email', buttonText = 'Submit' } = props;
 
 	return (
-		<div className="flex items-center space-x-2">
+		<div className="flex w-full items-center gap-2 space-x-2">
 			<Input type="text" placeholder={placeholder} />
 			<Button type="submit">{buttonText}</Button>
 		</div>
