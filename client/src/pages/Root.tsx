@@ -4,13 +4,13 @@ import '@/App.css';
 // Pages
 import Todo from '@/pages/Todo';
 
-function Root() {
+const Root = () => {
 	return (
 		<>
 			<Todo />
 			<Outlet />
 		</>
 	);
-}
+};
 
 export default Root;

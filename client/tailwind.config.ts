@@ -15,8 +15,9 @@ export default {
 			primary: '#9E78CF',
 			green: '#78CFB0',
 			gray: '#1D1825',
-			background: '#15101C',
 			'gray-light': '#D1D5DB',
+			background: '#15101C',
+			white: '#F9F9F9',
 		},
 		container: {
 			center: true,

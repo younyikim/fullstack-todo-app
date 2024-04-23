@@ -1,12 +1,12 @@
 // Components
 import TodoInput from '@/pages/Todo/components/TodoInput';
 
-function index() {
+const Todo = () => {
 	return (
-		<div className="hg-full container mx-auto flex flex-col items-center justify-center bg-gray-light px-4 py-2">
+		<div className="hg-full container mx-auto flex flex-col items-center justify-center bg-gray-light px-4 py-2 pt-14">
 			<TodoInput />
 		</div>
 	);
-}
+};
 
-export default index;
+export default Todo;
