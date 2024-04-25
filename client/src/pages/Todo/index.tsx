@@ -8,7 +8,7 @@ const Todo = () => {
 			<TodoInput />
 			<div className="box-border flex max-h-full w-full items-center justify-center gap-10 p-16">
 				<TodoListCard title="Tasks to do" />
-				<TodoListCard title="Done" />
+				<TodoListCard title="Done" isDone />
 			</div>
 		</div>
 	);

@@ -7,7 +7,7 @@ import { TodoListCardProps } from '@/pages/Todo/components/TodoListCard/todoList
 import { Images } from '@/utils/images';
 
 const TodoListCard = (props: TodoListCardProps) => {
-	const { title } = props;
+	const { title, isDone = false } = props;
 
 	const tags = Array.from({ length: 20 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
 
@@ -23,22 +23,41 @@ const TodoListCard = (props: TodoListCardProps) => {
 							key={tag}
 							className="box-border flex max-w-full items-center justify-between overflow-hidden rounded-lg bg-background px-4 py-6"
 						>
-							<div className="box-border flex w-full flex-grow items-center gap-2">
+							<div className="box-border flex w-full flex-grow items-center gap-4">
 								<div className="flex items-center">
-									<img src={Images.DragVertical} alt="drag vertical icon" />
-									<img src={Images.Checkbox} alt="checkbox icon" />
+									{isDone ? (
+										<>
+											<img src={Images.CheckboxFilled} alt="checkbox filled icon" />
+										</>
+									) : (
+										<>
+											<img src={Images.DragVertical} alt="drag vertical icon" />
+											<img src={Images.Checkbox} alt="checkbox icon" />
+										</>
+									)}
 								</div>
 								<div className="flex w-0 flex-grow justify-start text-lg">
-									<p className="truncate">{tag}</p>
+									<p className={`truncate ${isDone ? 'text-green line-through' : 'text-primary'}`}>
+										{tag}
+									</p>
 								</div>
 							</div>
 							<div className="flex items-center">
 								<div className="flex items-center gap-2">
-									<img src={Images.Edit} alt="Edit icon" />
-									<img src={Images.Trash} alt="Trash icon" />
+									{isDone ? (
+										<>
+											<img src={Images.TrashDone} alt="Trash Done icon" />
+										</>
+									) : (
+										<>
+											<img src={Images.Edit} alt="Edit icon" />
+											<img src={Images.Trash} alt="Trash icon" />
+										</>
+									)}
 								</div>
 							</div>
 						</div>
+
 						<Separator className="my-2" />
 					</>
 				))}

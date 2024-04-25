@@ -29,9 +29,10 @@ const ScrollBar = React.forwardRef<
 		ref={ref}
 		orientation={orientation}
 		className={cn(
-			'flex touch-none select-none transition-colors',
-			orientation === 'vertical' && 'border-l-transparent h-full w-2.5 border-l p-[1px]',
-			orientation === 'horizontal' && 'border-t-transparent h-2.5 flex-col border-t p-[1px]',
+			'bg-transparent flex touch-none select-none',
+			// ScrollArea의 Scroll 표시
+			// orientation === 'vertical' && 'border-l-transparent h-full w-2.5 border-l p-[1px]',
+			// orientation === 'horizontal' && 'border-t-transparent h-2.5 flex-col border-t p-[1px]',
 			className,
 		)}
 		{...props}
