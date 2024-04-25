@@ -4,9 +4,9 @@ import TodoListCard from '@/pages/Todo/components/TodoListCard';
 
 const Todo = () => {
 	return (
-		<div className="hg-full container mx-auto flex flex-col items-center justify-center px-4 py-2 pt-14">
+		<div className="container mx-auto box-border flex h-full flex-col items-center justify-start px-4 py-14">
 			<TodoInput />
-			<div className="flex w-full items-center justify-center gap-2 p-16">
+			<div className="box-border flex max-h-full w-full items-center justify-center gap-10 p-16">
 				<TodoListCard title="Tasks to do" />
 				<TodoListCard title="Done" />
 			</div>
