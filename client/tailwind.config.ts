@@ -1,4 +1,5 @@
 import tailwindAnimate from 'tailwindcss-animate';
+import tailwindScrollbarHide from 'tailwind-scrollbar-hide';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -43,5 +44,5 @@ export default {
 			},
 		},
 	},
-	plugins: [tailwindAnimate],
+	plugins: [tailwindAnimate, tailwindScrollbarHide],
 };
