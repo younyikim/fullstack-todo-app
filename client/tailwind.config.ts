@@ -44,5 +44,7 @@ export default {
 			},
 		},
 	},
+	purge: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx,vue}'],
+	mode: 'jit',
 	plugins: [tailwindAnimate, tailwindScrollbarHide],
 };
