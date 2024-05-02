@@ -1,3 +1,6 @@
+// Hooks
+import { useTodoListCard } from '@/pages/Todo/components/TodoListCard/hooks/useTodoListCard';
+
 // Components
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -9,18 +12,18 @@ import { Images } from '@/utils/images';
 const TodoListCard = (props: TodoListCardProps) => {
 	const { title, isDone = false } = props;
 
-	const tags = Array.from({ length: 20 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
+	const { list } = useTodoListCard({ isDone });
 
 	return (
-		<div className="flex h-full w-full flex-col items-center justify-center overflow-auto rounded-lg bg-gray px-11 scrollbar-hide">
+		<div className="flex h-full w-full flex-col items-center overflow-auto rounded-lg bg-gray px-11 scrollbar-hide">
 			<div className="sticky top-0 z-10 flex w-full bg-gray px-6 py-6">
 				<span className="text-2xl">{title}</span>
 			</div>
 			<ScrollArea>
-				{tags.map(tag => (
+				{list.map(item => (
 					<>
 						<div
-							key={tag}
+							key={item._id}
 							className="box-border flex max-w-full items-center justify-between overflow-hidden rounded-lg bg-background px-4 py-6"
 						>
 							<div className="box-border flex w-full flex-grow items-center gap-4">
@@ -38,7 +41,7 @@ const TodoListCard = (props: TodoListCardProps) => {
 								</div>
 								<div className="flex w-0 flex-grow justify-start text-lg">
 									<p className={`truncate ${isDone ? 'text-green line-through' : 'text-primary'}`}>
-										{tag}
+										{item.text}
 									</p>
 								</div>
 							</div>

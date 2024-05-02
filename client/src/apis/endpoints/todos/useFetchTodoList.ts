@@ -12,6 +12,6 @@ const fetchTodos = () => {
 	return apiRequest.get<Todo[]>(apiEndpoints.todos.todoList);
 };
 
-export const useFetchTodoList = () => {
-	return useQuery({ queryKey: queryKeys.todoList, queryFn: fetchTodos });
+export const useFetchTodoList = ({ isDone = false }) => {
+	return useQuery({ queryKey: queryKeys.todoList, queryFn: fetchTodos, enabled: !isDone });
 };
