@@ -9,13 +9,13 @@ import { createAxiosInstance } from '@/apis/axios/instance';
  * @returns {Promise<any>}
  * @throws {Error}
  */
-const get = (url: string, params?: Record<string, unknown>, baseURL?: string) => {
+const get = <T>(url: string, params?: Record<string, unknown>, baseURL?: string) => {
 	const instance = createAxiosInstance(baseURL);
 
 	return instance
-		.get(url, { params })
+		.get<T>(url, { params })
 		.then(response => {
-			return Promise.resolve(response.data.data);
+			return Promise.resolve(response.data);
 		})
 		.catch(error => {
 			console.log(`GET :: ${url} Failed!`);
@@ -32,13 +32,13 @@ const get = (url: string, params?: Record<string, unknown>, baseURL?: string) =>
  * @returns {Promise<any>}
  * @throws {Error}
  */
-const post = (url: string, data?: Record<string, unknown>, baseURL?: string) => {
+const post = <T>(url: string, data?: Record<string, unknown>, baseURL?: string) => {
 	const instance = createAxiosInstance(baseURL);
 
 	return instance
-		.post(url, data)
+		.post<T>(url, data)
 		.then(response => {
-			return Promise.resolve(response.data.data);
+			return Promise.resolve(response.data);
 		})
 		.catch(error => {
 			console.log(`POST :: ${url} Failed!`);
@@ -55,19 +55,21 @@ const post = (url: string, data?: Record<string, unknown>, baseURL?: string) => 
  * @returns {Promise<any>}
  * @throws {Error}
  */
-const put = () => (url: string, data?: Record<string, unknown>, baseURL?: string) => {
-	const instance = createAxiosInstance(baseURL);
+const put =
+	<T>() =>
+	(url: string, data?: Record<string, unknown>, baseURL?: string) => {
+		const instance = createAxiosInstance(baseURL);
 
-	return instance
-		.put(url, data)
-		.then(response => {
-			return Promise.resolve(response.data.data);
-		})
-		.catch(error => {
-			console.log(`PUT :: ${url} Failed!`);
-			return Promise.reject(error);
-		});
-};
+		return instance
+			.put<T>(url, data)
+			.then(response => {
+				return Promise.resolve(response.data);
+			})
+			.catch(error => {
+				console.log(`PUT :: ${url} Failed!`);
+				return Promise.reject(error);
+			});
+	};
 
 /**
  * @description Axios PATCH 요청 메서드
@@ -78,19 +80,21 @@ const put = () => (url: string, data?: Record<string, unknown>, baseURL?: string
  * @returns {Promise<any>}
  * @throws {Error}
  */
-const patch = () => (url: string, data?: Record<string, unknown>, baseURL?: string) => {
-	const instance = createAxiosInstance(baseURL);
+const patch =
+	<T>() =>
+	(url: string, data?: Record<string, unknown>, baseURL?: string) => {
+		const instance = createAxiosInstance(baseURL);
 
-	return instance
-		.patch(url, data)
-		.then(response => {
-			return Promise.resolve(response.data.data);
-		})
-		.catch(error => {
-			console.log(`PATCH :: ${url} Failed!`);
-			return Promise.reject(error);
-		});
-};
+		return instance
+			.patch<T>(url, data)
+			.then(response => {
+				return Promise.resolve(response.data);
+			})
+			.catch(error => {
+				console.log(`PATCH :: ${url} Failed!`);
+				return Promise.reject(error);
+			});
+	};
 
 /**
  * @description Axios DELETE 요청 메서드
@@ -101,19 +105,21 @@ const patch = () => (url: string, data?: Record<string, unknown>, baseURL?: stri
  * @returns {Promise<any>}
  * @throws {Error}
  */
-const remove = () => (url: string, data?: Record<string, unknown>, baseURL?: string) => {
-	const instance = createAxiosInstance(baseURL);
+const remove =
+	<T>() =>
+	(url: string, data?: Record<string, unknown>, baseURL?: string) => {
+		const instance = createAxiosInstance(baseURL);
 
-	return instance
-		.delete(url, { data })
-		.then(response => {
-			return Promise.resolve(response.data.data);
-		})
-		.catch(error => {
-			console.log(`DELETE :: ${url} Failed!`);
-			return Promise.reject(error);
-		});
-};
+		return instance
+			.delete<T>(url, { data })
+			.then(response => {
+				return Promise.resolve(response.data);
+			})
+			.catch(error => {
+				console.log(`DELETE :: ${url} Failed!`);
+				return Promise.reject(error);
+			});
+	};
 
 export default {
 	get,
