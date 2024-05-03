@@ -10,3 +10,9 @@ export type CreateTodo = {
 export type DeleteTodo = {
 	_id: string;
 };
+
+export type ToggleTodo = {
+	_id: string;
+	isChecked: boolean;
+	text?: string;
+};

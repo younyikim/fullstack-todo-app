@@ -19,7 +19,7 @@ const DoneListItem = (props: DoneListItemProps) => {
 		>
 			<div className="box-border flex w-full flex-grow items-center gap-4">
 				<div className="flex items-center">
-					<img src={Images.CheckboxFilled} alt="checkbox filled icon" />
+					<img src={Images.CheckboxDone} alt="checkbox filled icon" />
 				</div>
 				<div className="flex w-0 flex-grow justify-start text-lg">
 					<p className={'truncate text-green line-through'}>{item.text}</p>

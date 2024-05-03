@@ -10,7 +10,7 @@ import { TodoListItemProps } from '@/pages/Todo/components/TodoListItem/todoList
 const TodoListItem = (props: TodoListItemProps) => {
 	const { item } = props;
 
-	const { handleDeleteTodoOnClick } = useTodoListItem();
+	const { handleDeleteTodoOnClick, handleTodoCheckOnClick } = useTodoListItem();
 
 	return (
 		<div
@@ -19,10 +19,12 @@ const TodoListItem = (props: TodoListItemProps) => {
 		>
 			<div className="box-border flex w-full flex-grow items-center gap-4">
 				<div className="flex items-center">
-					<>
+					<div className="w-full cursor-pointer">
 						<img src={Images.DragVertical} alt="drag vertical icon" />
+					</div>
+					<div className="w-full cursor-pointer" onClick={() => handleTodoCheckOnClick(item)}>
 						<img src={Images.Checkbox} alt="checkbox icon" />
-					</>
+					</div>
 				</div>
 				<div className="flex w-0 flex-grow justify-start text-lg">
 					<p className={'truncate text-primary'}>{item.text}</p>

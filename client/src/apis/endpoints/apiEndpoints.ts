@@ -5,6 +5,7 @@ export const apiEndpoints = {
 	todos: {
 		todoList: '/todos',
 		todo: '/todos/:id',
+		todoToggle: '/todos/toggle/:id',
 	},
 	done: {
 		doneList: '/done',

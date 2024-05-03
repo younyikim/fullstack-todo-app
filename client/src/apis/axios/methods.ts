@@ -59,21 +59,19 @@ const post = <T>(url: string, data?: ParamsType, baseURL?: string) => {
  * @returns {Promise<any>}
  * @throws {Error}
  */
-const put =
-	<T>() =>
-	(url: string, data?: ParamsType, baseURL?: string) => {
-		const instance = createAxiosInstance(baseURL);
+const put = <T>(url: string, data?: ParamsType, baseURL?: string) => {
+	const instance = createAxiosInstance(baseURL);
 
-		return instance
-			.put<T>(url, data)
-			.then(response => {
-				return Promise.resolve(response.data);
-			})
-			.catch(error => {
-				console.log(`PUT :: ${url} Failed!`);
-				return Promise.reject(error);
-			});
-	};
+	return instance
+		.put<T>(url, data)
+		.then(response => {
+			return Promise.resolve(response.data);
+		})
+		.catch(error => {
+			console.log(`PUT :: ${url} Failed!`);
+			return Promise.reject(error);
+		});
+};
 
 /**
  * @description Axios PATCH 요청 메서드
@@ -84,21 +82,19 @@ const put =
  * @returns {Promise<any>}
  * @throws {Error}
  */
-const patch =
-	<T>() =>
-	(url: string, data?: ParamsType, baseURL?: string) => {
-		const instance = createAxiosInstance(baseURL);
+const patch = <T>(url: string, data?: ParamsType, baseURL?: string) => {
+	const instance = createAxiosInstance(baseURL);
 
-		return instance
-			.patch<T>(url, data)
-			.then(response => {
-				return Promise.resolve(response.data);
-			})
-			.catch(error => {
-				console.log(`PATCH :: ${url} Failed!`);
-				return Promise.reject(error);
-			});
-	};
+	return instance
+		.patch<T>(url, data)
+		.then(response => {
+			return Promise.resolve(response.data);
+		})
+		.catch(error => {
+			console.log(`PATCH :: ${url} Failed!`);
+			return Promise.reject(error);
+		});
+};
 
 /**
  * @description Axios DELETE 요청 메서드
