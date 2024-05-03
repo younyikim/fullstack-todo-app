@@ -10,7 +10,7 @@ import { DoneListItemProps } from '@/pages/Todo/components/DoneListItem/doneList
 const DoneListItem = (props: DoneListItemProps) => {
 	const { item } = props;
 
-	const { handleDeleteDoneOnClick } = useDoneListItem();
+	const { handleDeleteDoneOnClick, handleDoneCheckOnClick } = useDoneListItem();
 
 	return (
 		<div
@@ -18,7 +18,7 @@ const DoneListItem = (props: DoneListItemProps) => {
 			className="box-border flex max-w-full items-center justify-between overflow-hidden rounded-lg bg-background px-4 py-6"
 		>
 			<div className="box-border flex w-full flex-grow items-center gap-4">
-				<div className="flex items-center">
+				<div className="flex items-center" onClick={() => handleDoneCheckOnClick(item)}>
 					<img src={Images.CheckboxDone} alt="checkbox filled icon" />
 				</div>
 				<div className="flex w-0 flex-grow justify-start text-lg">
