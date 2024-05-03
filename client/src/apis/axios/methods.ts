@@ -1,15 +1,19 @@
+// Utils
 import { createAxiosInstance } from '@/apis/axios/instance';
+
+// Typings
+import { ParamsType } from '@/apis/axios/types';
 
 /**
  * @description Axios GET 요청 메서드
  * @param {Object} params
  * @param {string} params.path - api endpoint
- * @param {Record<string, unknown>} [params.params] - 요청과 함께 보낼 매개변수
+ * @param {ParamsType} [params.params] - 요청과 함께 보낼 매개변수
  * @param {string} [params.baseURL] - 요청의 기본 URL
  * @returns {Promise<any>}
  * @throws {Error}
  */
-const get = <T>(url: string, params?: Record<string, unknown>, baseURL?: string) => {
+const get = <T>(url: string, params?: ParamsType, baseURL?: string) => {
 	const instance = createAxiosInstance(baseURL);
 
 	return instance
@@ -27,12 +31,12 @@ const get = <T>(url: string, params?: Record<string, unknown>, baseURL?: string)
  * @description Axios POST 요청 메서드
  * @param {Object} params
  * @param {string} params.path - api endpoint
- * @param {Record<string, unknown>} [params.data] - 요청과 함께 보낼 매개변수
+ * @param {ParamsType} [params.data] - 요청과 함께 보낼 매개변수
  * @param {string} [params.baseURL] - 요청의 기본 URL
  * @returns {Promise<any>}
  * @throws {Error}
  */
-const post = <T>(url: string, data?: Record<string, unknown>, baseURL?: string) => {
+const post = <T>(url: string, data?: ParamsType, baseURL?: string) => {
 	const instance = createAxiosInstance(baseURL);
 
 	return instance
@@ -50,14 +54,14 @@ const post = <T>(url: string, data?: Record<string, unknown>, baseURL?: string) 
  * @description Axios PUT 요청 메서드
  * @param {Object} params
  * @param {string} params.path - api endpoint
- * @param {Record<string, unknown>} [params.data] - 요청과 함께 보낼 매개변수
+ * @param {ParamsType} [params.data] - 요청과 함께 보낼 매개변수
  * @param {string} [params.baseURL] - 요청의 기본 URL
  * @returns {Promise<any>}
  * @throws {Error}
  */
 const put =
 	<T>() =>
-	(url: string, data?: Record<string, unknown>, baseURL?: string) => {
+	(url: string, data?: ParamsType, baseURL?: string) => {
 		const instance = createAxiosInstance(baseURL);
 
 		return instance
@@ -75,14 +79,14 @@ const put =
  * @description Axios PATCH 요청 메서드
  * @param {Object} params
  * @param {string} params.path - api endpoint
- * @param {Record<string, unknown>} [params.data] - 요청과 함께 보낼 매개변수
+ * @param {ParamsType} [params.data] - 요청과 함께 보낼 매개변수
  * @param {string} [params.baseURL] - 요청의 기본 URL
  * @returns {Promise<any>}
  * @throws {Error}
  */
 const patch =
 	<T>() =>
-	(url: string, data?: Record<string, unknown>, baseURL?: string) => {
+	(url: string, data?: ParamsType, baseURL?: string) => {
 		const instance = createAxiosInstance(baseURL);
 
 		return instance
@@ -100,14 +104,14 @@ const patch =
  * @description Axios DELETE 요청 메서드
  * @param {Object} params
  * @param {string} params.path - api endpoint
- * @param {Record<string, unknown>} [params.data] - 요청과 함께 보낼 매개변수
+ * @param {ParamsType} [params.data] - 요청과 함께 보낼 매개변수
  * @param {string} [params.baseURL] - 요청의 기본 URL
  * @returns {Promise<any>}
  * @throws {Error}
  */
 const remove =
 	<T>() =>
-	(url: string, data?: Record<string, unknown>, baseURL?: string) => {
+	(url: string, data?: ParamsType, baseURL?: string) => {
 		const instance = createAxiosInstance(baseURL);
 
 		return instance

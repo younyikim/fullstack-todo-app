@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 
+// Utils
+import { usePostTodo } from '@/apis/endpoints/todos/usePostTodo';
+
 export const useTodoInput = () => {
 	const [value, setValue] = useState('');
 	const [buttonText, setButtonText] = useState('확인');
 	const [isCreate] = useState(true);
+
+	const { mutate } = usePostTodo();
 
 	useEffect(() => {
 		if (isCreate) setButtonText('확인');
@@ -24,7 +29,8 @@ export const useTodoInput = () => {
 	const handleSubmitOnClick = () => {
 		// Task 생성
 		if (isCreate) {
-			console.log('Create task', value);
+			mutate({ text: value });
+			setValue('');
 		}
 		// Task 수정
 		else {
