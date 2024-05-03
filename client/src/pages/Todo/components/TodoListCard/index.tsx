@@ -4,10 +4,11 @@ import { useTodoListCard } from '@/pages/Todo/components/TodoListCard/hooks/useT
 // Components
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import TodoListItem from '@/pages/Todo/components/TodoListItem';
+import DoneListItem from '@/pages/Todo/components/DoneListItem';
 
 // Typings
 import { TodoListCardProps } from '@/pages/Todo/components/TodoListCard/todoListCard';
-import { Images } from '@/utils/images';
 
 const TodoListCard = (props: TodoListCardProps) => {
 	const { title, isDone = false } = props;
@@ -22,45 +23,7 @@ const TodoListCard = (props: TodoListCardProps) => {
 			<ScrollArea>
 				{list.map(item => (
 					<>
-						<div
-							key={item._id}
-							className="box-border flex max-w-full items-center justify-between overflow-hidden rounded-lg bg-background px-4 py-6"
-						>
-							<div className="box-border flex w-full flex-grow items-center gap-4">
-								<div className="flex items-center">
-									{isDone ? (
-										<>
-											<img src={Images.CheckboxFilled} alt="checkbox filled icon" />
-										</>
-									) : (
-										<>
-											<img src={Images.DragVertical} alt="drag vertical icon" />
-											<img src={Images.Checkbox} alt="checkbox icon" />
-										</>
-									)}
-								</div>
-								<div className="flex w-0 flex-grow justify-start text-lg">
-									<p className={`truncate ${isDone ? 'text-green line-through' : 'text-primary'}`}>
-										{item.text}
-									</p>
-								</div>
-							</div>
-							<div className="flex items-center">
-								<div className="flex items-center gap-2">
-									{isDone ? (
-										<>
-											<img src={Images.TrashDone} alt="Trash Done icon" />
-										</>
-									) : (
-										<>
-											<img src={Images.Edit} alt="Edit icon" />
-											<img src={Images.Trash} alt="Trash icon" />
-										</>
-									)}
-								</div>
-							</div>
-						</div>
-
+						{isDone ? <DoneListItem item={item} /> : <TodoListItem item={item} />}
 						<Separator className="my-2" />
 					</>
 				))}
