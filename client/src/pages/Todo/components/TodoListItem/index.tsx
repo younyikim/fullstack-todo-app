@@ -32,7 +32,7 @@ const TodoListItem = (props: TodoListItemProps) => {
 				<div className="w-full cursor-pointer">
 					<img src={Images.Edit} width={22} alt="Edit icon" />
 				</div>
-				<div className="w-full cursor-pointer" onClick={() => handleDeleteTodoOnClick(item._id)}>
+				<div className="w-full cursor-pointer" onClick={() => handleDeleteTodoOnClick(item)}>
 					<img src={Images.Trash} width={22} alt="Trash icon" />
 				</div>
 			</div>

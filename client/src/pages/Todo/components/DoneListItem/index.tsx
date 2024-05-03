@@ -1,3 +1,6 @@
+// Hooks
+import { useDoneListItem } from '@/pages/Todo/components/DoneListItem/hooks/useDoneListItem';
+
 // Utils
 import { Images } from '@/utils/images';
 
@@ -6,6 +9,8 @@ import { DoneListItemProps } from '@/pages/Todo/components/DoneListItem/doneList
 
 const DoneListItem = (props: DoneListItemProps) => {
 	const { item } = props;
+
+	const { handleDeleteDoneOnClick } = useDoneListItem();
 
 	return (
 		<div
@@ -21,7 +26,10 @@ const DoneListItem = (props: DoneListItemProps) => {
 				</div>
 			</div>
 			<div className="flex items-center">
-				<div className="flex items-center gap-2">
+				<div
+					className="flex cursor-pointer items-center"
+					onClick={() => handleDeleteDoneOnClick(item)}
+				>
 					<img src={Images.TrashDone} alt="Trash Done icon" />
 				</div>
 			</div>
