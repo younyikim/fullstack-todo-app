@@ -1,3 +1,6 @@
+// Hooks
+import { useTodoListItem } from '@/pages/Todo/components/TodoListItem/hooks/useTodoListItem';
+
 // Utils
 import { Images } from '@/utils/images';
 
@@ -6,6 +9,8 @@ import { TodoListItemProps } from '@/pages/Todo/components/TodoListItem/todoList
 
 const TodoListItem = (props: TodoListItemProps) => {
 	const { item } = props;
+
+	const { handleDeleteTodoOnClick } = useTodoListItem();
 
 	return (
 		<div
@@ -23,12 +28,12 @@ const TodoListItem = (props: TodoListItemProps) => {
 					<p className={'truncate text-primary'}>{item.text}</p>
 				</div>
 			</div>
-			<div className="flex items-center">
-				<div className="flex items-center gap-2">
-					<>
-						<img src={Images.Edit} alt="Edit icon" />
-						<img src={Images.Trash} alt="Trash icon" />
-					</>
+			<div className="flex w-fit items-center justify-center gap-2">
+				<div className="w-full cursor-pointer">
+					<img src={Images.Edit} width={22} alt="Edit icon" />
+				</div>
+				<div className="w-full cursor-pointer" onClick={() => handleDeleteTodoOnClick(item._id)}>
+					<img src={Images.Trash} width={22} alt="Trash icon" />
 				</div>
 			</div>
 		</div>

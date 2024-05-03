@@ -4,8 +4,10 @@
 export const apiEndpoints = {
 	todos: {
 		todoList: '/todos',
+		todo: '/todos/:id',
 	},
 	done: {
 		doneList: '/done',
+		done: '/done/:id',
 	},
 };

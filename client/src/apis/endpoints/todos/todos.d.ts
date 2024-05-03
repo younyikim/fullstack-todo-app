@@ -6,3 +6,7 @@ export interface Todo {
 export type CreateTodo = {
 	text: string;
 };
+
+export type DeleteTodo = {
+	_id: string;
+};

@@ -1,3 +1,4 @@
 import { useFetchDoneList } from './useFetchDoneList';
+import { useDeleteDone } from './useDeleteDone';
 
-export { useFetchDoneList };
+export { useFetchDoneList, useDeleteDone };

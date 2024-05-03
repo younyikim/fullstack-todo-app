@@ -109,21 +109,19 @@ const patch =
  * @returns {Promise<any>}
  * @throws {Error}
  */
-const remove =
-	<T>() =>
-	(url: string, data?: ParamsType, baseURL?: string) => {
-		const instance = createAxiosInstance(baseURL);
+const remove = <T>(url: string, data?: ParamsType, baseURL?: string) => {
+	const instance = createAxiosInstance(baseURL);
 
-		return instance
-			.delete<T>(url, { data })
-			.then(response => {
-				return Promise.resolve(response.data);
-			})
-			.catch(error => {
-				console.log(`DELETE :: ${url} Failed!`);
-				return Promise.reject(error);
-			});
-	};
+	return instance
+		.delete<T>(url, { data })
+		.then(response => {
+			return Promise.resolve(response.data);
+		})
+		.catch(error => {
+			console.log(`DELETE :: ${url} Failed!`);
+			return Promise.reject(error);
+		});
+};
 
 export default {
 	get,
