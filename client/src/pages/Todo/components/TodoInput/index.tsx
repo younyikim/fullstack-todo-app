@@ -8,10 +8,11 @@ import { InputWithButton } from '@/components/ui/InputWithButton';
 import { TodoInputProps } from '@/pages/Todo/components/TodoInput/todoInput';
 
 const TodoInput = (props: TodoInputProps) => {
-	const { selectedItem } = props;
+	const { selectedItem, setSelectedItem } = props;
 
 	const { value, buttonText, handleInputOnChange, handleSubmitOnClick } = useTodoInput({
 		selectedItem,
+		setSelectedItem,
 	});
 
 	return (

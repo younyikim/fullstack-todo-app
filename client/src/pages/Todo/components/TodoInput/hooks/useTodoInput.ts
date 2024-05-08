@@ -6,7 +6,7 @@ import { TodoInputProps } from '@/pages/Todo/components/TodoInput/todoInput';
 import { usePutTodo } from '@/apis/endpoints';
 
 export const useTodoInput = (props: TodoInputProps) => {
-	const { selectedItem } = props;
+	const { selectedItem, setSelectedItem } = props;
 
 	const [value, setValue] = useState('');
 	const [buttonText, setButtonText] = useState('확인');
@@ -26,6 +26,17 @@ export const useTodoInput = (props: TodoInputProps) => {
 			setIsCreate(false);
 		}
 	}, [selectedItem]);
+
+	// Task 수정 중, 입력값이 빈 문자열이 되는 경우 수정 취소
+	useEffect(() => {
+		if (!isCreate && value === '') {
+			setSelectedItem({
+				_id: '',
+				text: '',
+			});
+			setIsCreate(true);
+		}
+	}, [value]);
 
 	/**
 	 * Todo task input onChange 핸들러
