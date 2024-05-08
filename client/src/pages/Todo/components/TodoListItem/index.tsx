@@ -8,9 +8,10 @@ import { Images } from '@/utils/images';
 import { TodoListItemProps } from '@/pages/Todo/components/TodoListItem/todoListItem';
 
 const TodoListItem = (props: TodoListItemProps) => {
-	const { item } = props;
+	const { item, setSelectedItem } = props;
 
-	const { handleDeleteTodoOnClick, handleTodoCheckOnClick } = useTodoListItem();
+	const { handleDeleteTodoOnClick, handleTodoCheckOnClick, handleTodoUpdateOnClick } =
+		useTodoListItem({ setSelectedItem });
 
 	return (
 		<div
@@ -31,7 +32,7 @@ const TodoListItem = (props: TodoListItemProps) => {
 				</div>
 			</div>
 			<div className="flex w-fit items-center justify-center gap-2">
-				<div className="w-full cursor-pointer">
+				<div className="w-full cursor-pointer" onClick={() => handleTodoUpdateOnClick(item)}>
 					<img src={Images.Edit} width={22} alt="Edit icon" />
 				</div>
 				<div className="w-full cursor-pointer" onClick={() => handleDeleteTodoOnClick(item)}>

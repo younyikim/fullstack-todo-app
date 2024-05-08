@@ -3,8 +3,11 @@ import { useDeleteTodo, usePutTodoToggle } from '@/apis/endpoints';
 
 // Typings
 import { Todo } from '@/apis/endpoints/todos/todos';
+import { TodoListItemHookProps } from '@/pages/Todo/components/TodoListItem/todoListItem';
 
-export const useTodoListItem = () => {
+export const useTodoListItem = (props: TodoListItemHookProps) => {
+	const { setSelectedItem } = props;
+
 	const deleteTodo = useDeleteTodo();
 	const toggleTodo = usePutTodoToggle();
 
@@ -18,5 +21,9 @@ export const useTodoListItem = () => {
 		toggleTodo.mutate({ ...item, isChecked: true });
 	};
 
-	return { handleDeleteTodoOnClick, handleTodoCheckOnClick };
+	const handleTodoUpdateOnClick = (item: Todo) => {
+		setSelectedItem(item);
+	};
+
+	return { handleDeleteTodoOnClick, handleTodoCheckOnClick, handleTodoUpdateOnClick };
 };

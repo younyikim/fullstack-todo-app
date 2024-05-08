@@ -11,7 +11,7 @@ import DoneListItem from '@/pages/Todo/components/DoneListItem';
 import { TodoListCardProps } from '@/pages/Todo/components/TodoListCard/todoListCard';
 
 const TodoListCard = (props: TodoListCardProps) => {
-	const { title, isDone = false } = props;
+	const { title, isDone = false, setSelectedItem = () => {} } = props;
 
 	const { list } = useTodoListCard({ isDone });
 
@@ -21,10 +21,14 @@ const TodoListCard = (props: TodoListCardProps) => {
 				<span className="text-2xl">{title}</span>
 			</div>
 			<ScrollArea>
-				{list.map(item => (
+				{list.map((item, index) => (
 					<>
-						{isDone ? <DoneListItem item={item} /> : <TodoListItem item={item} />}
-						<Separator className="my-2" />
+						{isDone ? (
+							<DoneListItem key={item._id} item={item} />
+						) : (
+							<TodoListItem key={item._id} item={item} setSelectedItem={setSelectedItem} />
+						)}
+						<Separator className="my-2" key={index} />
 					</>
 				))}
 			</ScrollArea>

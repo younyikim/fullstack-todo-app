@@ -4,8 +4,15 @@ import { useTodoInput } from '@/pages/Todo/components/TodoInput/hooks/useTodoInp
 // Components
 import { InputWithButton } from '@/components/ui/InputWithButton';
 
-const TodoInput = () => {
-	const { value, buttonText, handleInputOnChange, handleSubmitOnClick } = useTodoInput();
+// Typings
+import { TodoInputProps } from '@/pages/Todo/components/TodoInput/todoInput';
+
+const TodoInput = (props: TodoInputProps) => {
+	const { selectedItem } = props;
+
+	const { value, buttonText, handleInputOnChange, handleSubmitOnClick } = useTodoInput({
+		selectedItem,
+	});
 
 	return (
 		<InputWithButton

@@ -2,18 +2,30 @@ import { useEffect, useState } from 'react';
 
 // Utils
 import { usePostTodo } from '@/apis/endpoints/todos/usePostTodo';
+import { TodoInputProps } from '@/pages/Todo/components/TodoInput/todoInput';
+import { usePutTodo } from '@/apis/endpoints';
 
-export const useTodoInput = () => {
+export const useTodoInput = (props: TodoInputProps) => {
+	const { selectedItem } = props;
+
 	const [value, setValue] = useState('');
 	const [buttonText, setButtonText] = useState('확인');
-	const [isCreate] = useState(true);
+	const [isCreate, setIsCreate] = useState(true);
 
-	const { mutate } = usePostTodo();
+	const postTodo = usePostTodo();
+	const updateTodo = usePutTodo();
 
 	useEffect(() => {
 		if (isCreate) setButtonText('확인');
 		else setButtonText('수정');
 	}, [isCreate]);
+
+	useEffect(() => {
+		if (selectedItem && selectedItem?.text) {
+			setValue(selectedItem.text);
+			setIsCreate(false);
+		}
+	}, [selectedItem]);
 
 	/**
 	 * Todo task input onChange 핸들러
@@ -29,12 +41,14 @@ export const useTodoInput = () => {
 	const handleSubmitOnClick = () => {
 		// Task 생성
 		if (isCreate) {
-			mutate({ text: value });
+			postTodo.mutate({ text: value });
 			setValue('');
 		}
 		// Task 수정
 		else {
-			console.log('Update task', value);
+			updateTodo.mutate({ ...selectedItem, text: value });
+			setValue('');
+			setIsCreate(true);
 		}
 	};
 

@@ -16,3 +16,8 @@ export type ToggleTodo = {
 	isChecked: boolean;
 	text?: string;
 };
+
+export type UpdateTodo = {
+	_id: string;
+	text: string;
+};
